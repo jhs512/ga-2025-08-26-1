@@ -10,17 +10,6 @@ on:
       - 'index.html'
     branches:
       - main
-
-# 최소 권한만 부여 (GHCR 푸시 + 릴리스 작성에 필요)
-permissions:
-  contents: write   # 태그/릴리스 작성용
-  packages: write   # GHCR 푸시용
-
-# 동일 브랜치에서 중복 실행 방지 (선택)
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   makeTagAndRelease:
     runs-on: ubuntu-latest
